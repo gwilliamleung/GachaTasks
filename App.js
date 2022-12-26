@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { KeyboardAvodingView, StyleSheet, Text, View, SafeAreaView, Modal, Alert, Platform, TextInput, TouchableOpacity, Keyboard, Image, KeyboardAvoidingView } from 'react-native';
 import Task from './components/Task';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 
 export default function App() {
   const [task, setTask] = useState();
@@ -8,6 +11,30 @@ export default function App() {
   const [source, setSource] = useState(require('./assets/gachastill.png'))
   const [ModalVisibility, setModalVisibility] = useState(false);
   const [selectedTask, setSelectedTask] = useState();
+
+const storeData = async (value) => {
+  try {
+    const jsonValue = JSON.stringify(value)
+    await AsyncStorage.setItem('token', jsonValue)
+    console.log(jsonValue)
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('token')
+      console.log(jsonValue)
+      if (jsonValue !== null){
+        const data = JSON.parse(jsonValue)
+        setTaskItems(data)
+      }
+    } catch(e) {
+      console.log(e)
+    }
+  }
+
 
   const handleAddTask = () => {
     Keyboard.dismiss();
@@ -19,7 +46,6 @@ export default function App() {
 
   const getTask = () => {
     if (taskItems.length !== 0){
-      console.log(taskItems)
       setSource(require('./assets/gacha.gif'))
       setTimeout(() => {
         setSource(require('./assets/gachastill.png'))
@@ -82,6 +108,18 @@ export default function App() {
               })
             }
       </View>      
+      <View style={styles.storageButtonContainer}>
+        <TouchableOpacity>
+              <View style={styles.storageButtons}>
+                <Text style={styles.save} onPress={() => storeData(taskItems)}>SAVE</Text>
+              </View>
+            </TouchableOpacity> 
+        <TouchableOpacity>
+          <View style={styles.storageButtons}>
+            <Text style={styles.load} onPress={() => getData()}>LOAD</Text>
+          </View>
+        </TouchableOpacity>  
+        </View>
       <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.writeTaskWrapper}
@@ -154,5 +192,21 @@ const styles = StyleSheet.create({
     top:125,
     fontSize:32,
     width:300,
+  },
+  storageButtonContainer:{
+    position: 'absolute',
+    bottom:130,
+    flexDirection:'row',
+    justifyContent:'space-around',
+    width: 330
+    
+  },
+  storageButtons:{
+    backgroundColor: '#FFF',
+    width: 160,
+    height: 30,
+    borderRadius: 60,
+    justifyContent: 'center',
+    alignItems:'center',
   }
 });
