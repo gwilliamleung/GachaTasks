@@ -35,7 +35,6 @@ const storeData = async (value) => {
     }
   }
 
-
   const handleAddTask = () => {
     Keyboard.dismiss();
     if (task && task.trim() !== '') {
@@ -60,13 +59,13 @@ const storeData = async (value) => {
     let itemsCopy = [...taskItems];
     itemsCopy.splice(index, 1);
     setTaskItems(itemsCopy);
-  }
+  } 
 
   const pressModal = () => {
-    let randomTask = Math.floor(Math.random()*taskItems.length)
-    setSelectedTask(taskItems[randomTask])
     setModalVisibility(!ModalVisibility)
-    if(ModalVisibility){
+    let randomTask = Math.floor(Math.random()*taskItems.length);
+    if(!ModalVisibility){
+      setSelectedTask(taskItems[randomTask]);
       completeTask(randomTask);
     }
   }
