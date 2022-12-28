@@ -37,6 +37,10 @@ const storeData = async (value) => {
 
   const handleAddTask = () => {
     Keyboard.dismiss();
+    if (taskItems.length === 5){
+      Alert.alert("MAX TASK!!")
+      return;
+    }
     if (task && task.trim() !== '') {
       setTaskItems([...taskItems, task])
       setTask(null)
@@ -84,7 +88,7 @@ const storeData = async (value) => {
         <Text style={styles.modalText}>{selectedTask}</Text>
       </TouchableOpacity>
       <TouchableOpacity >
-        <Text style={styles.modalText} onPress={() => pressModal()}>{"close"}</Text>
+        <Text style={styles.modalText} onPress={() => pressModal()}>{"task finished"}</Text>
       </TouchableOpacity>
     </View>
     </Modal>
@@ -141,10 +145,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   taskWrapper: {
-    width:'100%',
-    justifyContent:'center',
-    paddingLeft: 60,
-
+    width:250,
   },
   writeTaskWrapper:{
     width:'100%',
