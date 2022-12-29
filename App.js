@@ -16,7 +16,6 @@ const storeData = async (value) => {
   try {
     const jsonValue = JSON.stringify(value)
     await AsyncStorage.setItem('token', jsonValue)
-    console.log(jsonValue)
   } catch (e) {
     console.log(e)
   }
@@ -25,7 +24,6 @@ const storeData = async (value) => {
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('token')
-      console.log(jsonValue)
       if (jsonValue !== null){
         const data = JSON.parse(jsonValue)
         setTaskItems(data)
