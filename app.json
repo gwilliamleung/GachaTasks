@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "FirstApp",
-    "slug": "FirstApp",
+    "name": "GachaTasks",
+    "slug": "GachaTasks",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

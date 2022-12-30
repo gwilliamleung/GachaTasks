@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { KeyboardAvodingView, StyleSheet, Text, View, SafeAreaView, Modal, Alert, Platform, TextInput, TouchableOpacity, Keyboard, Image, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Modal, Alert, Platform, TextInput, TouchableOpacity, Keyboard, Image, KeyboardAvoidingView } from 'react-native';
 import Task from './components/Task';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -53,7 +53,7 @@ const storeData = async (value) => {
         pressModal();
       }, 2250);  
     } else {
-      alert("No task available, please write some");
+      Alert.alert("No task available, please write some");
     }
   }
 
@@ -86,7 +86,7 @@ const storeData = async (value) => {
         <Text style={styles.modalText}>{selectedTask}</Text>
       </TouchableOpacity>
       <TouchableOpacity >
-        <Text style={styles.modalText} onPress={() => pressModal()}>{"task finished"}</Text>
+        <Text style={styles.modalText} onPress={() => pressModal()}>{"close"}</Text>
       </TouchableOpacity>
     </View>
     </Modal>
