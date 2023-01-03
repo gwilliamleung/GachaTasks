@@ -5,7 +5,7 @@ My first ever App created using React Native. Studies shows most people are not 
 I had experience with React but learning how somethings are different were an incredible journey. I kept adding more stuff such as modal (React native as a built in Modal component) and localStorage (React native is called AsyncStorage) for storing previous saved lists. There's more things to add but for now I think I'll leave this as this.
 
 Example of how it works
+![GachaTasksGif](https://user-images.githubusercontent.com/103716258/210454959-10e2f4aa-7039-467b-85ab-6a4fcef3c064.gif)
 
-![gacharollgif](https://user-images.githubusercontent.com/103716258/210454851-438aef84-8c87-462c-9dfd-759d758ec157.gif)
 
 
