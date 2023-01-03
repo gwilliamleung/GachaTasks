@@ -6,5 +6,6 @@ I had experience with React but learning how somethings are different were an in
 
 Example of how it works
 
+https://user-images.githubusercontent.com/103716258/210454775-22508b22-6719-45b9-a981-558f11e30386.mp4
 
-![gif of adding list and rolling](https://user-images.githubusercontent.com/103716258/210454675-2b9e77f6-9019-44ff-ba26-00703eb00920.gif)
+
