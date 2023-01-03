@@ -6,6 +6,6 @@ I had experience with React but learning how somethings are different were an in
 
 Example of how it works
 
-https://user-images.githubusercontent.com/103716258/210454775-22508b22-6719-45b9-a981-558f11e30386.mp4
+![gacharollgif](https://user-images.githubusercontent.com/103716258/210454851-438aef84-8c87-462c-9dfd-759d758ec157.gif)
 
 
